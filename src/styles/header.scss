@@ -1,0 +1,15 @@
+@use './src/styles/_variables';
+
+.header {
+  padding: 0 var(--gutter);
+
+  &__title {
+    font-size: 1.5rem;
+    font-family: helvetica, arial, sans-serif;
+    margin-top: 0;
+  }
+
+  @media (min-width: variables.$sm) {
+    padding: 0;
+  }
+}

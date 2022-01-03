@@ -1,0 +1,126 @@
+{
+  "content": [
+    [
+      {
+        "bg": "DeepPink",
+        "color": "white"
+      },
+      {
+        "bg": "DeepSkyBlue" 
+      }
+    ],
+    [
+      {
+        "bg": "DarkSlateBlue",
+        "color": "white"
+      },
+      {
+        "bg": "Gold" 
+      }
+    ],
+    [
+      {
+        "bg": "LightPink"
+      },
+      {
+        "bg": "LightBlue" 
+      }
+    ],
+    [
+      {
+        "bg": "Aqua"
+      },
+      {
+        "bg": "Aquamarine" 
+      }
+    ],
+    [
+      {
+        "bg": "Crimson",
+        "color": "white"
+      },
+      {
+        "bg": "Cyan" 
+      }
+    ],
+    [
+      {
+        "bg": "Indigo",
+        "color": "white"
+      },
+      {
+        "bg": "LightCoral" 
+      }
+    ],
+    [
+      {
+        "bg": "LemonChiffon"
+      },
+      {
+        "bg": "LightGreen" 
+      }
+    ],
+    [
+      {
+        "bg": "Orchid",
+        "color": "white"
+      },
+      {
+        "bg": "MistyRose" 
+      }
+    ],
+    [
+      {
+        "bg": "Plum"
+      },
+      {
+        "bg": "PowderBlue" 
+      }
+    ],
+    [
+      {
+        "bg": "Salmon"
+      },
+      {
+        "bg": "SkyBlue" 
+      }
+    ],
+    [
+      {
+        "bg": "Teal",
+        "color": "white"
+      },
+      {
+        "bg": "Tomato",
+        "color": "white"
+      }
+    ],
+    [
+      {
+        "bg": "Turquoise"
+      },
+      {
+        "bg": "Violet",
+        "color": "white"
+      }
+    ],
+    [
+      {
+        "bg": "Orange"
+      },
+      {
+        "bg": "RoyalBlue",
+        "color": "white"
+      }
+    ],
+    [
+      {
+        "bg": "Khaki"
+      },
+      {
+        "bg": "Indigo",
+        "color": "white"
+      }
+    ]
+  ]
+}

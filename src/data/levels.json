@@ -1,0 +1,235 @@
+{
+  "content": [
+    {
+      "slug": "tag-vs-class",
+      "html": "<h1 class='important'></div>",
+      "options": [
+        {
+          "selector": "h1",
+          "score": 1
+        },
+        {
+          "selector": ".important",
+          "score": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "tag-vs-id",
+      "html": "<h1 id='important'></div>",
+      "options": [
+        {
+          "selector": "h1",
+          "score": 1
+        },
+        {
+          "selector": "#important",
+          "score": 100,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-vs-id",
+      "html": "<div id='important' class='important'></div>",
+      "options": [
+        {
+          "selector": "#important",
+          "score": 100,
+          "good": true
+        },
+        {
+          "selector": ".important",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "slug": "same-class",
+      "html": "<div class='no1'></div>",
+      "shuffle": false,
+      "options": [
+        {
+          "selector": ".no1",
+          "score": 10
+        },
+        {
+          "selector": ".no1",
+          "score": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-vs-class",
+      "html": "<div class='no1 no2'></div>",
+      "shuffle": false,
+      "options": [
+        {
+          "selector": ".no1",
+          "score": 10
+        },
+        {
+          "selector": ".no2",
+          "score": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "tag-and-tag-vs-class",
+      "html": "<body>\n  <div class='no1'></div>\n</body>",
+      "options": [
+        {
+          "selector": "body div",
+          "score": 2
+        },
+        {
+          "selector": ".no1",
+          "score": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "style-vs-class",
+      "html": "<div class='no1' style='background-color: Khaki;'></div>",
+      "options": [
+        {
+          "selector": "style",
+          "bg": "Khaki",
+          "score": 1000,
+          "good": true
+        },
+        {
+          "selector": ".no2",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "slug": "style-vs-id",
+      "html": "<div id='no1' style='background-color: MistyRose;'></div>",
+      "options": [
+        {
+          "selector": "style",
+          "bg": "MistyRose",
+          "score": 1000,
+          "good": true
+        },
+        {
+          "selector": "#no1",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "slug": "class-and-tag-vs-class",
+      "html": "<div class='no1 no2'></div>",
+      "options": [
+        {
+          "selector": "div.no1",
+          "score": 11,
+          "good": true
+        },
+        {
+          "selector": ".no2",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "slug": "class-and-class-vs-class",
+      "html": "<div class='no1 no2'></div>",
+      "options": [
+        {
+          "selector": ".no1.no2",
+          "score": 20,
+          "good": true
+        },
+        {
+          "selector": ".no2",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "slug": "class-and-class-vs-id",
+      "html": "<div class='no1 no2' id='no3'></div>",
+      "options": [
+        {
+          "selector": ".no1.no2",
+          "score": 20
+        },
+        {
+          "selector": "#no3",
+          "score": 100,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-and-id-vs-id",
+      "html": "<div id='no1' class='no2'></div>",
+      "options": [
+        {
+          "selector": "#no1.no2",
+          "score": 110,
+          "good": true
+        },
+        {
+          "selector": "#no1",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "slug": "universal-vs-class",
+      "html": "<div class='no1'></div>",
+      "options": [
+        {
+          "selector": ".no1",
+          "score": 20,
+          "good": true
+        },
+        {
+          "selector": "*",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "slug": "same-class-vs-class",
+      "html": "<div class='no1'></div>",
+      "shuffle": false,
+      "options": [
+        {
+          "selector": ".no1.no1",
+          "score": 20,
+          "good": true
+        },
+        {
+          "selector": ".no1",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "slug": "same-class-vs-last-class",
+      "html": "<div class='no1 no2'></div>",
+      "shuffle": false,
+      "options": [
+        {
+          "selector": ".no1.no1",
+          "score": 20,
+          "good": true
+        },
+        {
+          "selector": ".no2",
+          "score": 10
+        }
+      ]
+    }
+  ]
+}

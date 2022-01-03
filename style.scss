@@ -1,0 +1,45 @@
+@use './src/styles/_variables';
+@use './src/styles/footer';
+@use './src/styles/header';
+@use './src/styles/options';
+@use './src/styles/popup';
+@use './src/styles/snippets';
+
+:root {
+  --primary: #fff;
+  --secondary: #102028;
+  --gutter: 20px;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-size: clamp(16px, 2vw, 20px);
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+#app {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #102028;
+    --secondary: #fff;
+  }
+}
+
+@media (min-width: variables.$sm) {
+  #app {
+    width: 80%;
+  }
+}

@@ -1,0 +1,131 @@
+@use './src/styles/_variables';
+
+.popup {
+  $el: &;
+
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s 0.5s;
+  z-index: 100;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary);
+    opacity: 0.35;
+  }
+
+  svg {
+    height: 0.75em;
+  }
+
+  pre {
+    margin: 0.25em 0;
+  }
+
+  &__wrapper {
+    width: 90%;
+    max-width: 576px;
+    background-color: var(--primary);
+    transform: translateY(-30px);
+    border-radius: 4px;
+    box-shadow: 0 0 20px 15px rgba(0,0,0,0.25);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s 0s, transform 0.2s 0s;
+  }
+
+  &__header,
+  &__main {
+    padding: var(--gutter);
+  }
+
+  &__header {
+    display: none;
+    font-size: 2rem;
+    font-family: helvetica, arial, sans-serif;
+    color: white;
+    text-align: center;
+    transition: display 0s 0.3s;
+
+    &--success { background-color: #2ECC40; }
+    &--fail { background-color: #FF4136; }
+  }
+
+  &__specificity {
+    border-collapse: collapse;
+    margin: 0.5em 0;
+
+    td { 
+      border: solid 1px currentColor;
+      padding: 0 0.25em;
+    }
+
+    .nbr {
+      min-width: 4em;
+      font-weight: bold;
+      text-align: right; 
+    }
+  }
+
+  &__next {
+    display: block;
+    font-size: 1rem;
+    background-color: #0074D9;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 1em;
+
+    &:hover {
+      background-color: #3390E1;
+    }
+  }
+
+  &--success,
+  &--fail {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s;
+
+    #{$el} {
+      &__wrapper {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s 0.15s, transform 0.5s 0.15s;
+      }
+    }
+  }
+
+  &--success {
+    #{$el} {
+      &__header--success { 
+        display: block; 
+        transition: display 0s 0s;
+      }
+    }
+  }
+
+  &--fail {
+    #{$el} {
+      &__header--fail { 
+        display: block;
+        transition: display 0s 0s; 
+      }
+    }
+  }
+}

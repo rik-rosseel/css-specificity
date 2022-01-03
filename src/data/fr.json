@@ -1,0 +1,22 @@
+{
+  "content": {
+    "title": "Quelle règles CSS est la plus spécifique?",
+    "subtitle": "Autrement dit, de quelle couleur sera l'élément HTML?",
+    "questions": {
+      "tag-vs-class": "Les classes ont toujours priorité sur les balises HTML.",
+      "tag-vs-id": "Les ids ont toujours priorité sur les balises HTML.",
+      "class-vs-id": "Les classes ont toujours priorité sur les balises HTML.",
+      "class-vs-class": "Les deux classes ont une spécificité équivalente. Dans ce cas, lorsque plusieurs règles CSS sont égales, celle écrite en dernier a priorité sur les autres.", 
+      "tag-and-tag-vs-class": "Le pointage des deux balises s'aditionnent. Cependant, une spécificité de 2 n'est pas suffisant pour dépasser le 10pts de spécificité d'une classe.", 
+      "same-class": "Les deux classes ont une spécificité équivalente. Dans ce cas, lorsque plusieurs règles CSS sont égales, celle écrite en dernier a priorité sur les autres.",     
+      "style-vs-class": "Les styles en ligne <em>(inline)</em> ont un pointage très élevé les rendant très difficile à écraser par la suite.",
+      "class-and-tag-vs-class": "Bien que deux classes est une spécificité équivalente, le fait de combiner une balise avec une classe permet d'aditionner le pointage d'une classe et d'une balise. Lui donnant ainsi priorité sur la classe seule <em>(même si celle-ci est écrite après)</em>",
+      "class-and-class-vs-class": "Le pointage des deux classes s'aditionne. Donnant ainsi à ce sélecteur la priorité.",
+      "universal-vs-class": "Le sélecteur universel n'a aucune valeur, donc tous les autres sélecteurs unt une priorité plus grande que celui-ci.",
+      "class-and-class-vs-id": "Le pointage des deux classes s'aditionne. Cependant, une spécificité de 20 n'est pas suffisant pour dépasser le 100pts de spécificité d'un id.",
+      "class-and-id-vs-id": "Le pointage du id et de la classe s'aditionne. Donnant ainsi à ce sélecteur la priorité.",
+      "same-class-vs-class": "Répéter 2x une classe lui donne un <em>'boost'</em> doublant ainsi sont pointage.",
+      "same-class-vs-last-class": "Répéter 2x une classe lui donne un <em>'boost'</em> doublant ainsi sont pointage. Dépassant ainsi la spécificité de la class écite après."
+    }
+  }
+}

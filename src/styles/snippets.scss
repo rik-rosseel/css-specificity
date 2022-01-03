@@ -1,0 +1,25 @@
+.snippet {
+  position: relative;
+  width: 100%;
+
+  &__label {
+    display: block;
+    width: 100%;
+    background-color: #042332;
+    color: #9f9f9f;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    border-top: solid 1px #102028;
+    border-bottom: solid 1px #102028;
+    padding: 0.5em var(--gutter);
+  }
+
+  pre {
+    background-color: #032f41;
+    color: #fff;
+    margin: 0;
+    padding: var(--gutter);
+  }
+}

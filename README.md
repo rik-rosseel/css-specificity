@@ -1,8 +1,7 @@
 # css-specificity
-CSS Specificity Quiz
+It's a fun quiz to learn and practice CSS Specificity.
 
-## Install
-npm i
-
-## Dev
-npm run dev
+## commands
+- npm i
+- npm run dev
+- npm run build

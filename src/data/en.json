@@ -1,9 +1,9 @@
 {
-  "title": "Spécificité CSS",
-  "intro": "<p><strong>Quelle règles CSS est la plus spécifique?</strong> Bref, de quelle couleur sera l'élément HTML?</p>",
-  "reset": "Recommencer",
-  "credits": "<p>Créé par <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — passez dire bonjour!</p><p>Vous avez des questions ou commentaires? Laissez-moi un billet sur le <a href='https://github.com/smnarnold/css-specificity'>repo Github</a>.</p>",
-  "score": "Pointage",
+  "title": "CSS Specificity",
+  "intro": "<p><strong>Which CSS rules are the most specific? </strong>In short, what color will the HTML element be?</p>",
+  "reset": "Reset",
+  "credits": "<p>Made by <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — come say hi!</p><p>Have feedback or questions? Please file an isssue on <a href='https://github.com/smnarnold/css-specificity'>Github repo</a>.</p>",
+  "score": "Score",
   "questions": {
     "tag-vs-class": "Les classes ont toujours priorité sur les balises HTML.",
     "tag-vs-id": "Les ids ont toujours priorité sur les balises HTML.",

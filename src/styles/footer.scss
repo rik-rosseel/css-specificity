@@ -14,7 +14,8 @@
     width: 100%;
   }
 
-  &__score {
+  &__score,
+  &__lang {
     margin: 0 0 var(--gutter);
   }
 
@@ -27,8 +28,10 @@
       align-items: center;
     }
 
-    &__score {
-      margin: 0;
-    }
+    &__score,
+    &__lang { margin: 0; }
+
+    &__score { order: 1; }
+    &__lang { order: 2; }
   }
 }

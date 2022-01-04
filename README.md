@@ -16,4 +16,4 @@ It's a fun quiz to learn and practice CSS Specificity.
 | selector | String | CSS Selector for an answer |
 | specificity | Number | Specificity of the matching selector |
 | bg | String | A forced background-color for this answer |
-| good | Bool | Is this answer the good one? | 
+| good | Bool | Is this answer the right one? | 

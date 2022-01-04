@@ -62,8 +62,21 @@ class Level {
 
     this.dom.html.innerHTML = hljs.highlight(this.data.html, {language: 'html'}).value;
     this.dom.css.innerHTML = hljs.highlight(css, {language: 'css'}).value;
+    this.setSwatches(this.dom.css);
     this.dom.answers.innerHTML = answers;
     this.dom.btnsArr = this.dom.wrapper.querySelectorAll('.answers__btn');
+  }
+
+  bindEvents() {
+    this.dom.btnsArr.forEach(btn => {
+      btn.addEventListener('click', () => {
+        let event = new Event('fail');
+        if(btn.classList.contains('answers__btn--good')) {
+          event = new Event('success');
+        }
+        document.body.dispatchEvent(event);
+      });
+    })
   }
 
   setTheme(answer, index) {
@@ -79,14 +92,20 @@ class Level {
 
   setPopupMsg(specificity) {
     this.dom.popup.main.innerHTML = `
-      <strong>Specificity</strong><br>
-      <table class="popup__specificity">${specificity}</table>
+      <table class="popup__specificity">
+        <tr>
+          <th>Sélecteur</th>
+          <th>Spécificité</th>
+        </tr>
+        ${specificity}
+      </table>
       <div class="popup__explanations">${this.description}</div>
     `;
   }
 
   setPopupSpecificity(answer, index) {
-    let specificity = `<tr>
+    let specificity = `
+                      <tr>
                         <td><pre>${answer.selector}</pre></td>
                         <td class="nbr">${answer.specificity}</td>
                       <tr>`;
@@ -115,6 +134,16 @@ class Level {
     return css;
   }
 
+  setSwatches(dom) {
+    let html = dom.innerHTML;
+
+    this.theme.forEach(theme => {
+      const swatch = `<span class="swatch" style="background: ${theme.bg};"></span>`;
+      html = html.replace(theme.bg, `${swatch}${theme.bg}`);
+    })
+    dom.innerHTML = html;
+  }
+
   setAnswer(answer, index) {
     let styles = `background-color: ${this.theme[index].bg};`;
     
@@ -129,18 +158,6 @@ class Level {
         <button class="answers__btn answers__btn--${status}" style="${styles}">${answer.selector}</button>
       </li>
     `;
-  }
-
-  bindEvents() {
-    this.dom.btnsArr.forEach(btn => {
-      btn.addEventListener('click', () => {
-        let event = new Event('fail');
-        if(btn.classList.contains('answers__btn--good')) {
-          event = new Event('success');
-        }
-        document.body.dispatchEvent(event);
-      });
-    })
   }
 
   shuffleArray(arr) {

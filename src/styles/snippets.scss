@@ -22,4 +22,12 @@
     margin: 0;
     padding: var(--gutter);
   }
+
+  .swatch {
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    border: solid 1px white;
+    margin-right: 0.25em;
+  }
 }

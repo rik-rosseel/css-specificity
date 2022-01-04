@@ -6,6 +6,10 @@
   "score": "Pointage",
   "congratulation": "Félicitations!",
   "next-question": "Question suivante",
+  "quiz-completed": "Quiz complété",
+  "final-score": "Pointage final",
+  "questions-in-random-order": "Réessayez en mode aléatoire",
+  "show-result": "Voir le résultat!",
   "questions": {
     "tag-vs-class": "Les classes ont toujours priorité sur les balises HTML.",
     "tag-vs-id": "Les ids ont toujours priorité sur les balises HTML.",

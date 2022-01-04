@@ -56,13 +56,14 @@
   &__header {
     display: none;
     font-size: 2rem;
-    font-family: helvetica, arial, sans-serif;
+    font-family: 'Pattaya', sans-serif;
     color: white;
     text-align: center;
     transition: display 0s 0.3s;
 
     &--success { background-color: #2ECC40; }
     &--fail { background-color: #FF4136; }
+    &--end { background-color: var(--highlight); }
   }
 
   &__specificity {
@@ -81,7 +82,9 @@
     }
   }
 
-  &__next {
+  &__next,
+  &__show-result,
+  &__random-questions {
     display: block;
     font-size: 1rem;
     background-color: var(--highlight);
@@ -90,12 +93,17 @@
     border: none;
     border-radius: 0;
     padding: 1em;
+    cursor: pointer;
 
     &:hover { background-color: var(--highlight-off); }
   }
 
+  &__show-result,
+  &__random-questions { display: none; }
+
   &--success,
-  &--fail {
+  &--fail,
+  &--end {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s;
@@ -124,6 +132,33 @@
         display: block;
         transition: display 0s 0s; 
       }
+    }
+  }
+
+  &--end {
+    text-align: center;
+
+    #{$el} {
+      &__header--end { 
+        display: block;
+        transition: display 0s 0s; 
+      }
+
+      &__random-questions { display: block; }
+      &__next,
+      &__show-result { display: none; }
+    }
+
+    .final-score {
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
+  &--no-more-question {
+    #{$el} {
+      &__show-result { display: block; }
+      &__next { display: none; }
     }
   }
 }

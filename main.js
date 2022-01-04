@@ -29,8 +29,12 @@ class Game {
       lang: document.querySelector('.lang'),
       popup: {
         el: document.querySelector('.popup'),
+        main: document.querySelector('.popup__main'),
         congratulation: document.querySelector('.congratulation'),
+        quizCompleted: document.querySelector('.popup__quiz-completed'),
         next: document.querySelector('.popup__next'),
+        showResult:document.querySelector('.popup__show-result'),
+        randomQuestions: document.querySelector('.popup__random-questions')
       },
       level: document.querySelector('.level'),
     };
@@ -51,10 +55,10 @@ class Game {
     this.dom.lang.value = this.lang;
 
     const savedLevel = localStorage.getItem('level');
-    if (savedLevel !== null) { this.level = savedLevel; }
+    if (savedLevel !== null) { this.level = parseInt(savedLevel); }
 
     const savedScore = localStorage.getItem('score');
-    if (savedScore !== null) { this.score = savedScore; }
+    if (savedScore !== null) { this.score = parseInt(savedScore); }
   }
 
   loadData() {
@@ -84,15 +88,21 @@ class Game {
     this.dom.footer.reset.innerHTML = this.data.reset;
     this.dom.footer.credits.innerHTML = this.data.credits;
     this.dom.popup.congratulation.innerText = this.data.congratulation;
+    this.dom.popup.quizCompleted.innerText = this.data['quiz-completed'];
     this.dom.popup.next.innerText = this.data['next-question'];
+    this.dom.popup.showResult.innerText = this.data['show-result'];
+    this.dom.popup.randomQuestions.innerText = this.data['questions-in-random-order'];
   }
 
   bindEvents() {
     document.body.addEventListener('success', () => this.successPopup(), false);
     document.body.addEventListener('fail', () => this.failPopup(), false);
-    this.dom.popup.next.addEventListener('click', () => this.nextLevel(), false);
+    
     this.dom.footer.reset.addEventListener('click', () => this.reset(), false);
     this.dom.lang.addEventListener('change', () => this.changeLang(), false);
+    this.dom.popup.next.addEventListener('click', () => this.nextLevel(), false);
+    this.dom.popup.showResult.addEventListener('click', () => this.setPopupEnd(), false);
+    this.dom.popup.randomQuestions.addEventListener('click', () => this.randomizeQuestions(), false);
   }
 
   goToLevel(level) {
@@ -114,8 +124,6 @@ class Game {
 
     if (this.level < this.levelsArr.length) {
       this.goToLevel(this.level);
-    } else {
-      this.showEnd();
     }
   }
 
@@ -126,7 +134,7 @@ class Game {
   showScore() {
     localStorage.setItem('score', this.score);
     this.dom.score.value.innerText = this.score;
-    this.dom.score.total.innerText = this.levelsArr.length;
+    this.dom.score.total.innerText = this.level + 1;
   }
 
   reset() {
@@ -139,6 +147,12 @@ class Game {
     this.score++;
     this.showScore();
 
+    if(this.level == this.levelsArr.length - 1) {
+      this.dom.popup.el.classList.add('popup--no-more-question');
+    } else {
+      this.dom.popup.el.classList.remove('popup--no-more-question');
+    }
+
     this.dom.popup.el.classList.add('popup--success');
   }
 
@@ -147,11 +161,33 @@ class Game {
   }
 
   clearPopup() {
-    this.dom.popup.el.classList.remove('popup--success', 'popup--fail');
+    this.dom.popup.el.classList.remove('popup--success', 'popup--fail', 'popup--end', 'popup--no-more-question');
   }
 
-  showEnd() {
-    console.log('Félicitations! Vous avez fait le tour!')
+  setPopupEnd() {
+    this.clearPopup();
+
+    setTimeout(() => {
+      this.dom.popup.main.innerHTML = `
+        ${this.data['final-score']}:
+        <div class="final-score">${this.score} / ${this.levelsArr.length}</div>
+      `;
+
+      this.dom.popup.el.classList.add('popup--end');
+    }, 500);
+  }
+
+  randomizeQuestions() {
+    this.levelsArr = this.shuffleArray(this.levelsArr);
+    this.reset();
+  }
+
+  shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
   }
 }
 

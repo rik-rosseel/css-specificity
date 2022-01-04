@@ -70,9 +70,15 @@
     border-collapse: collapse;
     margin: 0.5em 0;
 
+    th {
+      padding: 0 0.75em;
+      text-transform: uppercase;
+      font-size: 0.75em;
+    }
+
     td { 
       border: solid 1px currentColor;
-      padding: 0 0.25em;
+      padding: 0 0.5em;
     }
 
     .nbr {

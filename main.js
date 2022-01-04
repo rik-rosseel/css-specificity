@@ -157,6 +157,12 @@ class Game {
   }
 
   failPopup() {
+    if(this.level == this.levelsArr.length - 1) {
+      this.dom.popup.el.classList.add('popup--no-more-question');
+    } else {
+      this.dom.popup.el.classList.remove('popup--no-more-question');
+    }
+    
     this.dom.popup.el.classList.add('popup--fail');
   }
 

@@ -14,5 +14,6 @@ It's a fun quiz to learn and practice CSS Specificity.
 | shuffle | Bool | Can the answers order be random? *(true by default)* |
 | answers | Array | Array of answers |    
 | selector | String | CSS Selector for an answer |
-| specificity | Number | Specificity of the matching answer |
+| specificity | Number | Specificity of the matching selector |
+| bg | String | A forced background-color for this answer |
 | good | Bool | Is this answer the good one? | 

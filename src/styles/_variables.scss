@@ -1,1 +1,10 @@
 $sm: 576px;
+
+%link {
+  color: var(--highlight);
+  font-weight: normal;
+  font-family: inherit;
+  text-decoration: underline;
+
+  &:hover { text-decoration: none; }
+}

@@ -2,7 +2,7 @@
   "title": "CSS Specificity",
   "intro": "<p><strong>Which CSS rules are the most specific? </strong>In short, what color will the HTML element be?</p>",
   "reset": "Reset",
-  "credits": "<p>Made by <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — come say hi!</p><p>Have feedback or questions? Please file an isssue on <a href='https://github.com/smnarnold/css-specificity'>Github repo</a>.</p>",
+  "credits": "<p>Made by <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — come say hi!</p><p>Have feedback or questions? Please file an isssue on <a href='https://github.com/smnarnold/css-specificity' target='_blank'>Github repo</a>.</p>",
   "score": "Score",
   "questions": {
     "tag-vs-class": "Les classes ont toujours priorité sur les balises HTML.",

@@ -84,16 +84,14 @@
   &__next {
     display: block;
     font-size: 1rem;
-    background-color: #0074D9;
+    background-color: var(--highlight);
     color: white;
     width: 100%;
     border: none;
     border-radius: 0;
     padding: 1em;
 
-    &:hover {
-      background-color: #3390E1;
-    }
+    &:hover { background-color: var(--highlight-off); }
   }
 
   &--success,

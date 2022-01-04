@@ -29,6 +29,7 @@ class Game {
       lang: document.querySelector('.lang'),
       popup: {
         el: document.querySelector('.popup'),
+        congratulation: document.querySelector('.congratulation'),
         next: document.querySelector('.popup__next'),
       },
       level: document.querySelector('.level'),
@@ -82,6 +83,8 @@ class Game {
     this.dom.score.label.innerText = this.data.score;
     this.dom.footer.reset.innerHTML = this.data.reset;
     this.dom.footer.credits.innerHTML = this.data.credits;
+    this.dom.popup.congratulation.innerText = this.data.congratulation;
+    this.dom.popup.next.innerText = this.data['next-question'];
   }
 
   bindEvents() {

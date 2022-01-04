@@ -10,21 +10,33 @@ class Level {
   constructor(data, desc, wrapper) {
     this.data = data;
     this.description = desc;
-    this.options = this.data.options;
+    this.answers = this.data.answers;
     if(this.data.shuffle !== false) {
-      this.options = this.shuffleArray(this.data.options);
+      this.answers = this.shuffleArray(this.data.answers);
     }
 
     this.paletteIndex = Math.floor(Math.random() * palettes.content.length);
     this.palette = this.shuffleArray(palettes.content[this.paletteIndex]);
+    this.theme = [
+      {
+        bg: "MediumSpringGreen",
+        color: "black"
+      },
+      {
+        bg: "Beige",
+        color: "black"
+      },
+    ];
 
     this.dom = {
       wrapper: wrapper,
-      popup: wrapper.querySelector('.popup'),
-      popupMain: document.querySelector('.popup__main'),
+      popup: {
+        el: wrapper.querySelector('.popup'),
+        main: document.querySelector('.popup__main')
+      },
       html: wrapper.querySelector('.snippet--html code'),
       css: wrapper.querySelector('.snippet--css code'),
-      options: wrapper.querySelector('.options')
+      answers: wrapper.querySelector('.answers')
     };
 
     this.init();
@@ -38,76 +50,83 @@ class Level {
   create() {
     let specificity = '';
     let css = '';
-    let options = '';
-    this.data.options.forEach((option, index) => {
-      specificity += this.setPopupSpecificity(option, index);
-      options += this.setOption(option, index);
-      css += this.setCSS(option, index);
+    let answers = '';
+    this.data.answers.forEach((answer, index) => {
+      this.setTheme(answer, index);
+      specificity += this.setPopupSpecificity(answer, index);
+      answers += this.setAnswer(answer, index);
+      css += this.setCSS(answer, index);
     });
 
     this.setPopupMsg(specificity);
 
     this.dom.html.innerHTML = hljs.highlight(this.data.html, {language: 'html'}).value;
     this.dom.css.innerHTML = hljs.highlight(css, {language: 'css'}).value;
-    this.dom.options.innerHTML = options;
-    this.dom.btnsArr = this.dom.wrapper.querySelectorAll('.options__btn');
+    this.dom.answers.innerHTML = answers;
+    this.dom.btnsArr = this.dom.wrapper.querySelectorAll('.answers__btn');
+  }
+
+  setTheme(answer, index) {
+    this.theme[index].bg = this.palette[index].bg
+    if (this.palette[index].color) this.theme[index].color = this.palette[index].color;
+
+    if (answer.bg) {
+      this.theme[index].bg = answer.bg;
+      this.theme[index].color = "black";
+    }
+    if (answer.color) this.theme[index].color = answer.color;
   }
 
   setPopupMsg(specificity) {
-    this.dom.popupMain.innerHTML = `
-      <strong>Spécificité</strong><br>
+    this.dom.popup.main.innerHTML = `
+      <strong>Specificity</strong><br>
       <table class="popup__specificity">${specificity}</table>
       <div class="popup__explanations">${this.description}</div>
     `;
   }
 
-  setPopupSpecificity(option, index) {
+  setPopupSpecificity(answer, index) {
     let specificity = `<tr>
-                        <td><pre>${option.selector}</pre></td>
-                        <td class="nbr">${option.score}</td>
+                        <td><pre>${answer.selector}</pre></td>
+                        <td class="nbr">${answer.specificity}</td>
                       <tr>`;
-    if (index < this.options.length - 1) {
+    if (index < this.answers.length - 1) {
       specificity += '\n';
     }
 
     return specificity;
   }
 
-  setCSS(option, index) {
+  setCSS(answer, index) {
     let css = '';
 
-    if(option.bg) {
-      this.palette[index].bg = option.bg;
-      this.palette[index].color = undefined;
-    }
-
-    if(option.selector === "style") {
-      css += `${option.selector}="background-color: ${this.palette[index].bg};"`;
+    if (answer.selector === "style") {
+      css += `${answer.selector}="background-color: ${this.theme[index].bg};"`;
     } else {
-      css += `${option.selector} {
-  background-color: ${this.palette[index].bg};
+      css += `${answer.selector} {
+  background-color: ${this.theme[index].bg};
 }`;
     }
 
-    if (index < this.options.length - 1) {
+    if (index < this.answers.length - 1) {
       css += '\n\n';
     }
 
     return css;
   }
 
-  setOption(option, index) {
-    let styles = `background-color: ${this.palette[index].bg};`;
+  setAnswer(answer, index) {
+    let styles = `background-color: ${this.theme[index].bg};`;
     
-    if (this.palette[index].color) {
-      styles += `color: ${this.palette[index].color};`;
+    if (this.theme[index].color) {
+      styles += `color: ${this.theme[index].color};`;
     }
 
-    let answer = option.good ? "good" : "wrong";
+    let status = answer.good ? "good" : "wrong";
 
     return `
-      <li class="options__item">
-        <button class="options__btn options__btn--${answer}" style="${styles}">${option.selector}</button>
+      <li class="answers__item">
+        <button class="answers__btn answers__btn--${status}" style="${styles}">${answer.selector}</button>
       </li>
     `;
   }
@@ -116,7 +135,7 @@ class Level {
     this.dom.btnsArr.forEach(btn => {
       btn.addEventListener('click', () => {
         let event = new Event('fail');
-        if(btn.classList.contains('options__btn--good')) {
+        if(btn.classList.contains('answers__btn--good')) {
           event = new Event('success');
         }
         document.body.dispatchEvent(event);

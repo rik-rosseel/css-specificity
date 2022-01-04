@@ -2,232 +2,292 @@
   "content": [
     {
       "slug": "tag-vs-class",
-      "html": "<h1 class='super'></div>",
-      "options": [
+      "html": "<h1 class='super'>✋</div>",
+      "answers": [
         {
           "selector": "h1",
-          "score": 1
+          "specificity": 1
         },
         {
           "selector": ".super",
-          "score": 10,
+          "specificity": 10,
           "good": true
         }
       ]
     },
     {
       "slug": "tag-vs-id",
-      "html": "<h1 id='item'></div>",
-      "options": [
+      "html": "<h1 id='item'>✋</div>",
+      "answers": [
         {
           "selector": "h1",
-          "score": 1
+          "specificity": 1
         },
         {
           "selector": "#item",
-          "score": 100,
+          "specificity": 100,
           "good": true
         }
       ]
     },
     {
       "slug": "class-vs-id",
-      "html": "<div id='item' class='super'></div>",
-      "options": [
+      "html": "<div id='item' class='super'>✋</div>",
+      "answers": [
         {
           "selector": "#item",
-          "score": 100,
+          "specificity": 100,
           "good": true
         },
         {
           "selector": ".super",
-          "score": 10
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "same-class",
-      "html": "<div class='super'></div>",
+      "html": "<div class='super'>✋</div>",
       "shuffle": false,
-      "options": [
+      "answers": [
         {
           "selector": ".super",
-          "score": 10
+          "specificity": 10
         },
         {
           "selector": ".super",
-          "score": 10,
+          "specificity": 10,
           "good": true
         }
       ]
     },
     {
       "slug": "class-vs-class",
-      "html": "<div class='super extra'></div>",
+      "html": "<div class='super extra'>✋</div>",
       "shuffle": false,
-      "options": [
+      "answers": [
         {
           "selector": ".super",
-          "score": 10
+          "specificity": 10
         },
         {
           "selector": ".extra",
-          "score": 10,
+          "specificity": 10,
           "good": true
         }
       ]
     },
     {
       "slug": "tag-and-tag-vs-class",
-      "html": "<body>\n  <div class='super'></div>\n</body>",
-      "options": [
+      "html": "<body>\n  <div class='super'>✋</div>\n</body>",
+      "answers": [
         {
           "selector": "body div",
-          "score": 2
+          "specificity": 2
         },
         {
           "selector": ".super",
-          "score": 10,
+          "specificity": 10,
           "good": true
         }
       ]
     },
     {
       "slug": "style-vs-class",
-      "html": "<div class='super' style='background-color: Khaki;'></div>",
-      "options": [
+      "html": "<div class='super' style='background-color: Khaki;'>✋</div>",
+      "answers": [
         {
           "selector": "style",
           "bg": "Khaki",
-          "score": 1000,
+          "specificity": 1000,
           "good": true
         },
         {
           "selector": ".super",
-          "score": 10
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "style-vs-id",
-      "html": "<div id='item' style='background-color: MistyRose;'></div>",
-      "options": [
+      "html": "<div id='item' style='background-color: MistyRose;'>✋</div>",
+      "answers": [
         {
           "selector": "style",
           "bg": "MistyRose",
-          "score": 1000,
+          "specificity": 1000,
           "good": true
         },
         {
           "selector": "#item",
-          "score": 100
+          "specificity": 100
+        }
+      ]
+    },
+    {
+      "slug": "class-proximity",
+      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
+      "answers": [
+        {
+          "selector": ".super",
+          "specificity": "🚫" 
+        },
+        {
+          "selector": ".extra",
+          "specificity": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-order",
+      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
+      "answers": [
+        {
+          "selector": ".extra .super",
+          "specificity": "🚫" 
+        },
+        {
+          "selector": ".super .extra",
+          "specificity": 20,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-same-element",
+      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
+      "answers": [
+        {
+          "selector": ".super .extra",
+          "specificity": "🚫" 
+        },
+        {
+          "selector": ".super.extra",
+          "specificity": 20,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-children-vs-class",
+      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
+      "answers": [
+        {
+          "selector": ".super .extra",
+          "specificity": 20,
+          "good": true
+        },
+        {
+          "selector": ".extra",
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "class-and-tag-vs-class",
-      "html": "<div class='super extra'></div>",
-      "options": [
+      "html": "<div class='super extra'>✋</div>",
+      "answers": [
         {
           "selector": "div.super",
-          "score": 11,
+          "specificity": 11,
           "good": true
         },
         {
           "selector": ".extra",
-          "score": 10
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "class-and-class-vs-class",
-      "html": "<div class='super extra'></div>",
-      "options": [
+      "html": "<div class='super extra'>✋</div>",
+      "answers": [
         {
           "selector": ".super.extra",
-          "score": 20,
+          "specificity": 20,
           "good": true
         },
         {
           "selector": ".extra",
-          "score": 10
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "class-and-class-vs-id",
-      "html": "<div id='item' class='super extra'></div>",
-      "options": [
+      "html": "<div id='item' class='super extra'>✋</div>",
+      "answers": [
         {
           "selector": ".super.extra",
-          "score": 20
+          "specificity": 20
         },
         {
           "selector": "#item",
-          "score": 100,
+          "specificity": 100,
           "good": true
         }
       ]
     },
     {
       "slug": "class-and-id-vs-id",
-      "html": "<div id='item' class='super'></div>",
-      "options": [
+      "html": "<div id='item' class='super'>✋</div>",
+      "answers": [
         {
           "selector": "#item.super",
-          "score": 110,
+          "specificity": 110,
           "good": true
         },
         {
           "selector": "#item",
-          "score": 100
+          "specificity": 100
         }
       ]
     },
     {
       "slug": "universal-vs-class",
-      "html": "<div class='super'></div>",
-      "options": [
+      "html": "<div class='super'>✋</div>",
+      "answers": [
         {
           "selector": ".super",
-          "score": 20,
+          "specificity": 20,
           "good": true
         },
         {
           "selector": "*",
-          "score": 0
+          "specificity": 0
         }
       ]
     },
     {
       "slug": "same-class-vs-class",
-      "html": "<div class='super'></div>",
+      "html": "<div class='super'>✋</div>",
       "shuffle": false,
-      "options": [
+      "answers": [
         {
           "selector": ".super.super",
-          "score": 20,
+          "specificity": 20,
           "good": true
         },
         {
           "selector": ".super",
-          "score": 10
+          "specificity": 10
         }
       ]
     },
     {
       "slug": "same-class-vs-last-class",
-      "html": "<div class='super extra'></div>",
+      "html": "<div class='super extra'>✋</div>",
       "shuffle": false,
-      "options": [
+      "answers": [
         {
           "selector": ".super.extra",
-          "score": 20,
+          "specificity": 20,
           "good": true
         },
         {
           "selector": ".extra",
-          "score": 10
+          "specificity": 10
         }
       ]
     }

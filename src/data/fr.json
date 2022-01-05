@@ -2,7 +2,7 @@
   "congratulation": "Félicitations!",
   "credits": "<p>Créé par <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — passez dire bonjour!</p><p>Vous avez des questions ou commentaires? Laissez-moi un billet sur le <a href='https://github.com/smnarnold/css-specificity' target='_blank'>repo Github</a>.</p>",
   "final-score": "Pointage final",
-  "intro": "<p><strong>Quelle règle CSS est la plus spécifique?</strong> Bref, de quelle couleur sera l'élément avec l'émoji ✋?</p>",
+  "intro": "<p>De quelle couleur sera l'élément avec l'émoji ✋?</p>",
   "level": "Niveau",
   "next-question": "Question suivante",
   "of": "de",

@@ -59,13 +59,13 @@ class Level {
       css += this.setCSS(answer, index);
     });
 
-    this.setPopupMsg(specificity);
-
     this.dom.html.innerHTML = hljs.highlight(this.data.html, {language: 'html'}).value;
     this.dom.css.innerHTML = hljs.highlight(css, {language: 'css'}).value;
     this.setSwatches(this.dom.css);
     this.dom.answers.innerHTML = answers;
     this.dom.btnsArr = this.dom.wrapper.querySelectorAll('.answers__btn');
+
+    setTimeout(() => this.setPopupMsg(specificity), 750);
   }
 
   bindEvents() {

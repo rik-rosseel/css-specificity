@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   text-align: center;
+  font-size: max(14px, 0.75em);
   margin: var(--gutter) 0 0;
   padding: 0 var(--gutter);
   opacity: 0;
@@ -31,6 +32,17 @@
     background: transparent;
     font-size: 1em;
     border: none;
+  }
+
+  &__credits {
+    margin-top: var(--gutter);
+    
+    p {
+      margin: 0.5em 0;
+
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+    }
   }
 
   .is-ready & { animation: fadein 0.75s 0.5s forwards; }

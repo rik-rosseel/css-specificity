@@ -7,10 +7,18 @@ class Game {
     this.levelsArr = levelsArr.content;
     this.level = 0;
     this.score = 0;
+    this.supportedLanguages = ['en', 'fr']
     this.lang = navigator.language.substring(0,2).toLowerCase();
+    this.lang = this.supportedLanguages.includes(this.lang) ? this.lang : 'en'; // Fallback en
 
     this.dom = {
       app: document.querySelector('#app'),
+      level: {
+        label: document.querySelector('.level__label'),
+        current: document.querySelector('.level__current'),
+        of: document.querySelector('.level__of'),
+        total: document.querySelector('.level__total')
+      },
       header: {
         el: document.querySelector('.header'),
         title: document.querySelector('.header__title'),
@@ -36,7 +44,7 @@ class Game {
         showResult:document.querySelector('.popup__show-result'),
         randomQuestions: document.querySelector('.popup__random-questions')
       },
-      level: document.querySelector('.level'),
+      main: document.querySelector('.main'),
     };
 
     this.init();
@@ -59,6 +67,12 @@ class Game {
 
     const savedScore = localStorage.getItem('score');
     if (savedScore !== null) { this.score = parseInt(savedScore); }
+
+    if (this.level >= this.levelsArr.length -1) {
+      this.level = this.score = 0;
+    }
+
+    this.showLevel();
   }
 
   loadData() {
@@ -82,6 +96,8 @@ class Game {
 
   i18n() {
     document.documentElement.lang = this.lang;
+    this.dom.level.label.innerText = this.data.level;
+    this.dom.level.of.innerText = this.data.of;
     this.dom.header.title.innerText = document.title = this.data.title;
     this.dom.header.intro.innerHTML = this.data.intro;
     this.dom.score.label.innerText = this.data.score;
@@ -116,7 +132,7 @@ class Game {
 
     let levelObj = this.levelsArr[this.level];
 
-    new Level(levelObj, this.data.questions[levelObj.slug], this.dom.level);
+    new Level(levelObj, this.data.questions[levelObj.slug], this.dom.main, this.data);
   }
   
   nextLevel() {
@@ -131,10 +147,16 @@ class Game {
     return this.levelsArr[level].slug;
   }
 
+  showLevel() {
+    this.dom.level.current.innerText = this.level;
+    this.dom.level.total.innerText = this.levelsArr.length;
+  }
+
   showScore() {
     localStorage.setItem('score', this.score);
     this.dom.score.value.innerText = this.score;
-    this.dom.score.total.innerText = this.level + 1;
+    this.dom.score.total.innerText = this.level;
+    this.dom.level.current.innerText = this.level + 1;
   }
 
   reset() {
@@ -145,7 +167,6 @@ class Game {
 
   successPopup() {
     this.score++;
-    this.showScore();
 
     if(this.level == this.levelsArr.length - 1) {
       this.dom.popup.el.classList.add('popup--no-more-question');
@@ -162,7 +183,7 @@ class Game {
     } else {
       this.dom.popup.el.classList.remove('popup--no-more-question');
     }
-    
+
     this.dom.popup.el.classList.add('popup--fail');
   }
 
@@ -171,6 +192,9 @@ class Game {
   }
 
   setPopupEnd() {
+    this.level = this.levelsArr.length;
+
+    this.showScore();
     this.clearPopup();
 
     setTimeout(() => {

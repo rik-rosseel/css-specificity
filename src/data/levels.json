@@ -46,22 +46,6 @@
       ]
     },
     {
-      "slug": "class-order",
-      "html": "<div class='super'>✋</div>",
-      "shuffle": false,
-      "answers": [
-        {
-          "selector": ".super",
-          "specificity": 10
-        },
-        {
-          "selector": ".super",
-          "specificity": 10,
-          "good": true
-        }
-      ]
-    },
-    {
       "slug": "class-vs-class",
       "html": "<div class='super extra'>✋</div>",
       "shuffle": false,
@@ -78,7 +62,68 @@
       ]
     },
     {
-      "slug": "tag-and-tag-vs-class",
+      "slug": "class-order",
+      "html": "<div class='super'>✋</div>",
+      "shuffle": false,
+      "answers": [
+        {
+          "selector": ".super",
+          "specificity": 10
+        },
+        {
+          "selector": ".super",
+          "specificity": 10,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "tag-and-class-vs-class",
+      "html": "<div class='super extra'>✋</div>",
+      "answers": [
+        {
+          "selector": "div.super",
+          "specificity": 11,
+          "good": true
+        },
+        {
+          "selector": ".extra",
+          "specificity": 10
+        }
+      ]
+    },
+    {
+      "slug": "class-and-class-vs-id",
+      "html": "<div id='item' class='super extra'>✋</div>",
+      "answers": [
+        {
+          "selector": ".super.extra",
+          "specificity": 20
+        },
+        {
+          "selector": "#item",
+          "specificity": 100,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "class-and-id-vs-id",
+      "html": "<div id='item' class='super'>✋</div>",
+      "answers": [
+        {
+          "selector": "#item.super",
+          "specificity": 110,
+          "good": true
+        },
+        {
+          "selector": "#item",
+          "specificity": 100
+        }
+      ]
+    },
+    {
+      "slug": "tag-ancestor-and-tag-vs-class",
       "html": "<body>\n  <div class='super'>✋</div>\n</body>",
       "answers": [
         {
@@ -140,21 +185,6 @@
       ]
     },
     {
-      "slug": "class-ancestor-order",
-      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
-      "answers": [
-        {
-          "selector": ".extra .super",
-          "specificity": "🚫" 
-        },
-        {
-          "selector": ".super .extra",
-          "specificity": 20,
-          "good": true
-        }
-      ]
-    },
-    {
       "slug": "class-separation",
       "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
       "answers": [
@@ -185,17 +215,17 @@
       ]
     },
     {
-      "slug": "tag-and-class-vs-class",
-      "html": "<div class='super extra'>✋</div>",
+      "slug": "class-ancestor-order",
+      "html": "<div class='super'>\n  <div class='extra'>✋</div>\n</div>",
       "answers": [
         {
-          "selector": "div.super",
-          "specificity": 11,
-          "good": true
+          "selector": ".extra .super",
+          "specificity": "🚫" 
         },
         {
-          "selector": ".extra",
-          "specificity": 10
+          "selector": ".super .extra",
+          "specificity": 20,
+          "good": true
         }
       ]
     },
@@ -211,36 +241,6 @@
         {
           "selector": ".extra",
           "specificity": 10
-        }
-      ]
-    },
-    {
-      "slug": "class-and-class-vs-id",
-      "html": "<div id='item' class='super extra'>✋</div>",
-      "answers": [
-        {
-          "selector": ".super.extra",
-          "specificity": 20
-        },
-        {
-          "selector": "#item",
-          "specificity": 100,
-          "good": true
-        }
-      ]
-    },
-    {
-      "slug": "class-and-id-vs-id",
-      "html": "<div id='item' class='super'>✋</div>",
-      "answers": [
-        {
-          "selector": "#item.super",
-          "specificity": 110,
-          "good": true
-        },
-        {
-          "selector": "#item",
-          "specificity": 100
         }
       ]
     },

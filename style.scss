@@ -5,6 +5,7 @@
 @use './src/styles/header';
 @use './src/styles/popup';
 @use './src/styles/snippets';
+@use './src/styles/utilities';
 
 :root {
   --primary: #fff;
@@ -36,14 +37,14 @@ a { @extend %link; }
   position: relative;
   max-width: 1200px;
   margin: auto;
-  padding: var(--gutter) 0;
+  padding: 60px 0 var(--gutter);
   opacity: 0;
   transition: opacity 0.5s;
 
   &.is-ready { opacity: 1; }
 }
 
-.level {
+.main {
   opacity: 0;
 
   .is-ready & { animation: fadein 0.75s 0.25s forwards; }

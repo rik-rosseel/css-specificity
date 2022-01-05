@@ -7,8 +7,9 @@ import css from 'highlight.js/lib/languages/css';
 hljs.registerLanguage('css', css);
 
 class Level {
-  constructor(data, desc, wrapper) {
+  constructor(data, desc, wrapper, translations) {
     this.data = data;
+    this.translations = translations;
     this.description = desc;
     this.answers = this.data.answers;
     if(this.data.shuffle !== false) {
@@ -94,8 +95,8 @@ class Level {
     this.dom.popup.main.innerHTML = `
       <table class="popup__specificity">
         <tr>
-          <th>Sélecteur</th>
-          <th>Spécificité</th>
+          <th>${this.translations.selector}</th>
+          <th>${this.translations.specificity}</th>
         </tr>
         ${specificity}
       </table>

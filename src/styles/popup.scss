@@ -67,6 +67,7 @@
   }
 
   &__specificity {
+    font-size: 0.85em;
     border-collapse: collapse;
     margin: 0.5em 0;
 
@@ -86,6 +87,10 @@
       font-weight: bold;
       text-align: right; 
     }
+  }
+
+  &__explanations {
+    margin: var(--gutter) 0 0;
   }
 
   &__next,

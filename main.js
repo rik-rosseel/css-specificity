@@ -2,6 +2,9 @@ import './style.scss';
 import * as levelsArr from './src/data/levels.json';
 import Level from './src/scripts/level.js';
 
+import ogen from './src/img/og-en.png';
+import ogfr from './src/img/og-fr.png';
+
 class Game {
   constructor() {
     this.levelsArr = levelsArr.content;
@@ -96,6 +99,14 @@ class Game {
 
   i18n() {
     document.documentElement.lang = this.lang;
+    document.querySelector('meta[property="og:title"]').content = this.data.title;
+    document.querySelector('meta[property="og:description"]').content = this.data.slogan;
+    if(this.lang === 'fr') {
+      document.querySelector('meta[property="og:image"]').content = ogfr;
+    } else {
+      document.querySelector('meta[property="og:image"]').content = ogen;
+    }
+
     this.dom.level.label.innerText = this.data.level;
     this.dom.level.of.innerText = this.data.of;
     this.dom.header.title.innerText = document.title = this.data.title;

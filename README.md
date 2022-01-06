@@ -1,10 +1,23 @@
 # CSS Specificity
 It's a fun quiz to learn and practice CSS Specificity.
+URL: [css-specificity.smnarnold.com](https://css-specificity.smnarnold.com)
 
-## Commands
-- npm i
-- npm run dev
-- npm run build
+## Dev
+Install the project with npm:
+```
+npm i 
+```
+Start SCSS & JS watcher:
+```
+npm run dev 
+```
+
+## Deployment
+Minify files
+```
+npm run build
+```
+Upload dist folder content to server
 
 ## Level Structure
 | Key | Type | Description |
@@ -17,3 +30,9 @@ It's a fun quiz to learn and practice CSS Specificity.
 | specificity | Number | Specificity of the matching selector |
 | bg | String | A forced background-color for this answer |
 | good | Bool | Is this answer the right one? | 
+
+## Languages supported
+- English, Français
+
+## Contributors
+- [smnarnold](https://github.com/smnarnold)

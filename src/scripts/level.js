@@ -139,8 +139,8 @@ class Level {
     let html = dom.innerHTML;
 
     this.theme.forEach(theme => {
-      const swatch = `<span class="swatch" style="background: ${theme.bg};"></span>`;
-      html = html.replace(theme.bg, `${swatch}${theme.bg}`);
+      const swatch = `<span class="swatch" style="background:${theme.bg};"></span>`;
+      html = html.replace(` ${theme.bg}`, ` ${swatch}${theme.bg}`);
     })
     dom.innerHTML = html;
   }

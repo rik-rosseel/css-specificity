@@ -7,7 +7,7 @@
     width: 100%;
     background-color: #042332;
     color: #9f9f9f;
-    font-family: var(--primay-font);
+    font-family: var(--font-regular);
     font-style: normal;
     font-size: 0.75em;
     letter-spacing: 0.1em;
@@ -23,7 +23,7 @@
     padding: var(--gutter);
   }
 
-  code { font-family: var(--primay-font); }
+  code { font-family: var(--font-regular); }
 
   .swatch {
     display: inline-block;

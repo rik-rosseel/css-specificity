@@ -12,7 +12,8 @@
   --secondary: #102028;
   --highlight: MediumSlateBlue;
   --highlight-off: #9586F1;
-  --primay-font: 'Exo 2', Lato, 'Helvetica Neue', sans-serif;
+  --font-regular: 'Exo 2', Lato, 'Helvetica Neue', sans-serif;
+  --font-title: 'Pattaya', sans-serif;
   --gutter: 20px;
 }
 
@@ -26,7 +27,7 @@ body {
 
 body {
   display: flex;
-  font-family: var(--primay-font);
+  font-family: var(--font-regular);
   font-size: clamp(16px, 2vw, 20px);
   background-color: var(--primary);
   color: var(--secondary);

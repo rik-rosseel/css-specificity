@@ -6,10 +6,9 @@
 
   &__title {
     color: var(--highlight);
-    font-size: 3rem;
-    font-family: 'Pattaya', sans-serif;
-    text-align: center;
-    margin-top: 0;
+    font-size: 1rem;
+    font-family: var(--font-title);
+    margin: 0;
   }
 
   .is-ready & { animation: fadein 0.75s forwards; } 

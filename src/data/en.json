@@ -1,6 +1,6 @@
 {
   "congratulation": "Congratulation!",
-  "credits": "<p>Made by <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — come say hi!</p><p>Have feedback or questions? Please file an isssue on <a href='https://github.com/smnarnold/css-specificity' target='_blank'>Github repo</a>.</p>",
+  "credits": "<p>Made by <a href='https://twitter.com/smnarnold' target='_blank'>@smnarnold</a> — come say hi!</p><p>Have feedback or questions? Please file an isssue on the <a href='https://github.com/smnarnold/css-specificity' target='_blank'>Github repo</a>.</p>",
   "final-score": "Final score",
   "intro": "<p>What color will the element with the emoji ✋ be?</p>",
   "level": "Level",

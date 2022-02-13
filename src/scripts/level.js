@@ -1,4 +1,5 @@
 import * as palettes from '../data/palettes.json';
+import shuffleArray from './helpers/shuffleArray';
 import hljs from 'highlight.js/lib/core';
 import 'highlight.js/styles/vs2015.css';
 import xml from 'highlight.js/lib/languages/xml';
@@ -7,17 +8,16 @@ import css from 'highlight.js/lib/languages/css';
 hljs.registerLanguage('css', css);
 
 class Level {
-  constructor(data, desc, wrapper, translations) {
+  constructor(data, desc, wrapper) {
     this.data = data;
-    this.translations = translations;
     this.description = desc;
     this.answers = this.data.answers;
     if(this.data.shuffle !== false) {
-      this.answers = this.shuffleArray(this.data.answers);
+      this.answers = shuffleArray(this.data.answers);
     }
 
     this.paletteIndex = Math.floor(Math.random() * palettes.content.length);
-    this.palette = this.shuffleArray(palettes.content[this.paletteIndex]);
+    this.palette = shuffleArray(palettes.content[this.paletteIndex]);
     this.theme = [
       {
         bg: "MediumSpringGreen",
@@ -95,8 +95,8 @@ class Level {
     this.dom.popup.main.innerHTML = `
       <table class="popup__specificity">
         <tr>
-          <th>${this.translations.selector}</th>
-          <th>${this.translations.specificity}</th>
+          <th>Sélecteur</th>
+          <th>Spécificité</th>
         </tr>
         ${specificity}
       </table>
@@ -159,14 +159,6 @@ class Level {
         <button class="answers__btn answers__btn--${status}" style="${styles}">${answer.selector}</button>
       </li>
     `;
-  }
-
-  shuffleArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
   }
 }
 

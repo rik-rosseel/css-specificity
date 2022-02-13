@@ -56,7 +56,7 @@
   &__header {
     display: none;
     font-size: 2rem;
-    font-family: 'Pattaya', sans-serif;
+    font-family: var(--font-title);
     color: white;
     text-align: center;
     transition: display 0s 0.3s;
@@ -81,6 +81,8 @@
       border: solid 1px currentColor;
       padding: 0 0.5em;
     }
+
+    pre { font-family: var(--font-regular); }
 
     .nbr {
       min-width: 4em;

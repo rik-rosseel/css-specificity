@@ -33,6 +33,8 @@
     "class-ancestor-order": "Un sélecteur CSS est lu de droite à gauche. Donc l'élément ciblé devrait toujours se trouver en dernier et non au début.",
     "class-and-class-vs-class": "Le pointage des deux classes s'additionne. Donnant ainsi à ce sélecteur la priorité.",
     "universal-vs-class": "Le sélecteur universel <em>(*)</em> n'a aucune valeur de spécificité, donc tous les autres sélecteurs ont une priorité plus grande que celui-ci.",
+    "pseudo-class-vs-class": "Une pseudo-classe à la même valeur qu'une classe, donc combiné à cette dernière sa valeur de spécificité est plus grande que celle d'une classe seule.",
+    "pseudo-class-vs-id": "Même survolé, la couleur de l'élément restera celle définit par le id puisque sa spécificité reste plus grande.",
     "class-double-vs-class": "Répéter 2x une classe renforce un sélecteur, doublant ainsi sa spécificité.<p>Cette technique ne devrait être utilisée qu'en dernier recours.</p>"
   }
 }

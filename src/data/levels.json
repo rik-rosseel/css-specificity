@@ -260,6 +260,36 @@
       ]
     },
     {
+      "slug": "pseudo-class-vs-class",
+      "html": "<div class='super'>✋</div>",
+      "answers": [
+        {
+          "selector": ".super",
+          "specificity": 10
+        },
+        {
+          "selector": ".super:hover",
+          "specificity": 20,
+          "good": true
+        }
+      ]
+    },
+    {
+      "slug": "pseudo-class-vs-id",
+      "html": "<div id='item' class='super'>✋</div>",
+      "answers": [
+        {
+          "selector": ".super:hover",
+          "specificity": 20
+        },
+        {
+          "selector": "#item",
+          "specificity": 100,
+          "good": true
+        }
+      ]
+    },
+    {
       "slug": "class-double-vs-class",
       "html": "<div class='super'>✋</div>",
       "shuffle": false,

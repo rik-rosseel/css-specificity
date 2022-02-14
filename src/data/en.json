@@ -33,6 +33,8 @@
     "class-ancestor-order": "A CSS selector is read from right to left. So the targeted element should always be last and not at the beginning.",
     "class-and-class-vs-class": "Le pointage des deux classes s'additionne. Donnant ainsi à ce sélecteur la priorité.",
     "universal-vs-class": "The universal selector <em>(*)</em> has no specificity value, so all other selectors have a higher priority than this one.",
+    "pseudo-class-vs-class": "A pseudo-class has the same value as a class, so combined with the latter its specificity value is greater than that of a class alone.",
+    "pseudo-class-vs-id": "Even hovered, the color of the element will remain the one defined by the id since its specificity remains greater.",
     "class-double-vs-class": "Repeating a class 2x strengthens a selector, doubling its specificity. <p>This technique should only be used as a last resort.</p>"
   }
 }
